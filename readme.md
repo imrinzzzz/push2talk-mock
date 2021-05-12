@@ -60,7 +60,7 @@ There are 3 main modules in this project. Inside each modules, there are smaller
 - user
     - validations - provide various modules to validate user information; such as is-admin (validate if given user is admin)
 
-Below, we will illustrate `push-to-talk` modules and how they interact/use other modules.
+Below is the illustration of `push-to-talk` modules and how they interact/use other modules.
 
 ![overview of components/modules](markdown_assets/component_overview.png)
 
