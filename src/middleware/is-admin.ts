@@ -1,11 +1,21 @@
-import { InternalServerError } from "./500-error";
+import { AppError } from "./error-template";
 import UserValidations from "../controller/user";
+import HttpCode from "../types/http-code";
 
-const checkIfAdmin = (req: any, res: any, next: any) => {
+const checkIfAdmin = async (req: any, res: any, next: any) => {
   try {
     const { uid } = req.body;
-    return UserValidations.isAdmin(uid);
+    const isAdmin = await UserValidations.isAdmin(uid);
+    if (isAdmin) return next();
+    throw new AppError(
+      "Not an admin",
+      HttpCode.FORBIDDEN,
+      "This user is not an admin.",
+      true
+    );
   } catch (e) {
-    throw new InternalServerError(e);
+    throw e;
   }
 };
+
+export default checkIfAdmin;
