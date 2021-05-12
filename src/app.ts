@@ -3,6 +3,7 @@ import path from "path";
 import express from "express";
 
 import { Router } from "./routes";
+import returnError from "../src/middleware/error-handler";
 
 const app = express();
 const base_uri = process.env.BASE_URI!;
@@ -20,6 +21,8 @@ app.use((_req: any, res: any, _next: any) => {
     message: "This path is not available..",
   });
 });
+
+app.use(returnError);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
