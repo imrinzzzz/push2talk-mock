@@ -7,4 +7,5 @@ import Push2TalkController from "../controller/push-to-talk";
 const router = express.Router();
 
 router.get("/retrieve", checkIfWhitelist, Push2TalkController.retrieveVoice);
+router.post("/create", checkIfWhitelist, Push2TalkController.saveVoice);
 router.get("/report/:chatId", checkIfAdmin, Push2TalkController.generateReport);
