@@ -1,3 +1,4 @@
+import { retrieveVoice } from './retrieve-voice/retrieve-voice';
 import { generateReport } from "./report/gen-report";
 
-export { generateReport };
+export default { generateReport, retrieveVoice };
