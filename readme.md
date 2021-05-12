@@ -49,3 +49,9 @@ We want to enable “Push-to-Talk” features on our chat-platform. This is the 
 ## The overview of service/components
 
 ## Table design
+There are 2 added tables; VoiceChat and Whitelist.
+![table](markdown_assets/table.png)
+
+Below is a diagram to show the relationships and metadata for each table in the database. 
+
+![table diagram](markdown_assets/table_diagram.png)
