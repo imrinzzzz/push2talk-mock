@@ -4,7 +4,7 @@ import HttpCode from "../types/http-code";
 
 const checkIfAdmin = async (req: any, res: any, next: any) => {
   try {
-    const { uid } = req.body;
+    const { uid } = req.headers.authorization.split(" ")[1];
     const isAdmin = await UserValidations.isAdmin(uid);
     if (isAdmin) return next();
     throw new AppError(

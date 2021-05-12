@@ -4,7 +4,7 @@ import HttpCode from "../types/http-code";
 
 const checkIfWhitelist = async (req: any, res: any, next: any) => {
   try {
-    const { uid } = req.body;
+    const { uid } = req.headers.authorization.split(" ")[1];;
     const isWhitelist = await UserValidations.isWhitelist(uid);
     if (isWhitelist) return next();
     throw new AppError(
