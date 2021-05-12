@@ -9,6 +9,7 @@ This project cannot be run. It is used to serve as a general idea of how the bac
 
 This project was created as part of the **Junior/Associate Software Engineer Challenge** at [Fastwork](https://fastwork.co).
 
+---
 ## Requirements
 
 We want to enable “Push-to-Talk” features on our chat-platform. This is the business requirement:
@@ -46,7 +47,22 @@ We want to enable “Push-to-Talk” features on our chat-platform. This is the 
 - High level of current architecture
   ![high level of current architecture](markdown_assets/current_architecture.png)
 
+---
 ## The overview of service/components
+
+There are 3 main modules in this project. Inside each modules, there are smaller modules which can be listed as
+- push-to-talk
+    - report - return a report for admin on voice chat
+    - retrieve-voice - retrieve voice chat from database
+    - save-voice - save voice chat to database
+- chatroom
+    - is-in-chatroom - check if a given user is in a given chat room
+- user
+    - validations - provide various modules to validate user information; such as is-admin (validate if given user is admin)
+
+Below, we will illustrate `push-to-talk` modules and how they interact/use other modules.
+
+![overview of components/modules](markdown_assets/component_overview.png)
 
 ## Table design
 There are 2 added tables; VoiceChat and Whitelist.
@@ -55,3 +71,9 @@ There are 2 added tables; VoiceChat and Whitelist.
 Below is a diagram to show the relationships and metadata for each table in the database. 
 
 ![table diagram](markdown_assets/table_diagram.png)
+
+---
+## Note
+
+- In order to interact with database, an ORM tool will be used. Although, no ORM tool was specified in project, the coding style is referenced from [prisma.io](https://www.prisma.io).
+- Since voice is stored as base64 format, it is possible to send voice data in the request body. However, for better practice, it should be sent as a multipart form. (Using BLOB would be more efficient to store in the database as well.)
