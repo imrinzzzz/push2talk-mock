@@ -1,12 +1,12 @@
 # Push-to-talk backend mock
 
-{% warning %}
+<!-- {% warning %}
 
 **Warning:** This project cannot be run. It is used to serve as a general idea of how the backend will look like.
 
-{% endnote %}
+{% endnote %} -->
 
-<!-- <p class="callout warning">This project cannot be run. It is used to serve as a general idea of how the backend will look like.</p> -->
+<p class="callout warning">This project cannot be run. It is used to serve as a general idea of how the backend will look like.</p>
 
 This project was created as part of the **Junior/Associate Software Engineer Challenge** at [Fastwork](https://fastwork.co). 
 
